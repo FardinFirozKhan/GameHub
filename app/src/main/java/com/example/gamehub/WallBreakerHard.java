@@ -13,7 +13,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class WallBreaker extends AppCompatActivity implements SurfaceHolder.Callback {
+public class WallBreakerHard extends AppCompatActivity implements SurfaceHolder.Callback {
 
     private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;
@@ -29,7 +29,7 @@ public class WallBreaker extends AppCompatActivity implements SurfaceHolder.Call
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wall_breaker);
+        setContentView(R.layout.activity_wall_breaker_hard);
 
         surfaceView = findViewById(R.id.surfaceView);
         surfaceHolder = surfaceView.getHolder();
@@ -41,19 +41,19 @@ public class WallBreaker extends AppCompatActivity implements SurfaceHolder.Call
     private void initializeGame() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        screenWidth = (int) (displayMetrics.density * 390);  // Convert dp to pixels
-        screenHeight = (int) (displayMetrics.density * 690);  // Convert dp to pixels
+        screenWidth = (int) (displayMetrics.density * 390);
+        screenHeight = (int) (displayMetrics.density * 690);
 
-        paddleWidth = screenWidth / 4;
+        paddleWidth = screenWidth / 6;
         paddleHeight = screenHeight / 30;
-        paddleX = screenWidth / 2 - paddleWidth / 2;
+        paddleX = screenWidth / 3 - paddleWidth / 3;
         paddleY = screenHeight - paddleHeight - 100;
 
         ballRadius = screenWidth / 50;
         ballX = screenWidth / 2;
         ballY = paddleY - ballRadius - 10;
-        ballSpeedX = 15;
-        ballSpeedY = -15;
+        ballSpeedX = 20;
+        ballSpeedY = -20;
 
         brickWidth = screenWidth / 8;
         brickHeight = screenHeight / 20;
@@ -72,7 +72,7 @@ public class WallBreaker extends AppCompatActivity implements SurfaceHolder.Call
         ballPaint.setColor(Color.RED);
 
         brickPaint = new Paint();
-        brickPaint.setColor(Color.GREEN);
+        brickPaint.setColor(Color.WHITE);
 
         brickBorderPaint = new Paint();
         brickBorderPaint.setColor(Color.BLACK);
@@ -85,14 +85,14 @@ public class WallBreaker extends AppCompatActivity implements SurfaceHolder.Call
             ballX += ballSpeedX;
             ballY += ballSpeedY;
 
-            // Check collision with paddle
+
             if (ballY + ballRadius >= paddleY && ballY + ballRadius <= paddleY + paddleHeight) {
                 if (ballX + ballRadius >= paddleX && ballX - ballRadius <= paddleX + paddleWidth) {
                     ballSpeedY = -ballSpeedY;
                 }
             }
 
-            // Check collision with bricks
+
             for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 8; col++) {
                     if (bricks[row][col] == 1) {
@@ -107,7 +107,7 @@ public class WallBreaker extends AppCompatActivity implements SurfaceHolder.Call
                 }
             }
 
-            // Check collision with screen boundaries
+
             if (ballX + ballRadius >= screenWidth || ballX - ballRadius <= 0) {
                 ballSpeedX = -ballSpeedX;
             }
@@ -116,7 +116,7 @@ public class WallBreaker extends AppCompatActivity implements SurfaceHolder.Call
                 ballSpeedY = -ballSpeedY;
             }
 
-            // Check if all bricks are destroyed
+
             boolean allBricksDestroyed = true;
             for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 8; col++) {
@@ -152,13 +152,13 @@ public class WallBreaker extends AppCompatActivity implements SurfaceHolder.Call
             Canvas canvas = surfaceHolder.lockCanvas();
             canvas.drawColor(Color.BLACK);
 
-            // Draw paddle
+
             canvas.drawRect(paddleX, paddleY, paddleX + paddleWidth, paddleY + paddleHeight, paddlePaint);
 
-            // Draw ball
+
             canvas.drawCircle(ballX, ballY, ballRadius, ballPaint);
 
-            // Draw bricks
+
             for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 8; col++) {
                     if (bricks[row][col] == 1) {
@@ -219,7 +219,7 @@ public class WallBreaker extends AppCompatActivity implements SurfaceHolder.Call
                     updateGame();
                     drawGame();
                     try {
-                        Thread.sleep(16);  // Delay for smooth animation (60 fps)
+                        Thread.sleep(16);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

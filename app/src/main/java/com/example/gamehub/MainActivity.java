@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         snake_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, SnakeGame.class);
+                Intent intent=new Intent(MainActivity.this, SnakeGameLevel.class);
                 startActivity(intent);
             }
         });
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         wallBreaker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, WallBreaker.class);
+                Intent intent=new Intent(MainActivity.this, WallBreakerLevel.class);
                 startActivity(intent);
             }
         });
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         tic_tac_toe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, Tic_Tac_Toe.class);
+                Intent intent=new Intent(MainActivity.this, Tic_Tac_Toe_Level.class);
                 startActivity(intent);
             }
         });

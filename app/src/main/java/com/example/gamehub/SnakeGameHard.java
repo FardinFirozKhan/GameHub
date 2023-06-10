@@ -21,7 +21,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class SnakeGame extends AppCompatActivity implements SurfaceHolder.Callback {
+public class SnakeGameHard extends AppCompatActivity implements SurfaceHolder.Callback {
 
     private SurfaceView surfaceView;
     private TextView scoreTV;
@@ -112,8 +112,8 @@ public class SnakeGame extends AppCompatActivity implements SurfaceHolder.Callba
     private void init() {
         snakePointsList = new ArrayList<>();
         pointSize = 28;
-        snakeColor = Color.YELLOW;
-        snakeMovingSpeed = 800;
+        snakeColor = Color.GREEN;
+        snakeMovingSpeed = 900;
         movingDirection = "right";
         score = 0;
 

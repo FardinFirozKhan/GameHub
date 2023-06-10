@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GameHub">
         <activity
+            android:name=".Tic_Tac_Toe_hard"
+            android:exported="true" />
+        <activity
+            android:name=".Tic_Tac_Toe_Level"
+            android:exported="true" />
+        <activity
+            android:name=".WallBreakerHard"
+            android:exported="true" />
+        <activity
+            android:name=".WallBreakerLevel"
+            android:exported="true" />
+        <activity
+            android:name=".SnakeGameHard"
+            android:exported="true" />
+        <activity
+            android:name=".SnakeGameLevel"
+            android:exported="true" />
+        <activity
             android:name=".Tic_Tac_Toe"
             android:exported="true" />
         <activity

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SnakeGame">
+    tools:context=".SnakeGameHard">
 
     <RelativeLayout
         android:id="@+id/bottomBar"
@@ -29,52 +29,52 @@
             android:layout_marginTop="18dp"
             />
     </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="18dp"
+        android:paddingTop="10dp"
+        android:background="@color/black"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/buttonBar">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/topBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:background="@android:color/holo_blue_light"
+            android:src="@drawable/top"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:gravity="center"
-            android:paddingBottom="18dp"
-            android:paddingTop="10dp"
-            android:background="@color/black"
-            android:layout_alignParentBottom="true"
-            android:id="@+id/buttonBar">
+            android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/topBtn"
+                android:id="@+id/leftBtn"
                 android:layout_width="90dp"
                 android:layout_height="50dp"
                 android:background="@android:color/holo_blue_light"
-                android:src="@drawable/top"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:src="@drawable/left"/>
 
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/leftBtn"
-                    android:layout_width="90dp"
-                    android:layout_height="50dp"
-                    android:background="@android:color/holo_blue_light"
-                    android:src="@drawable/left"/>
-
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/rightBtn"
-                    android:layout_width="90dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="80dp"
-                    android:background="@android:color/holo_blue_light"
-                    android:src="@drawable/right"/>
-
-            </LinearLayout>
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/bottomBtn"
+                android:id="@+id/rightBtn"
                 android:layout_width="90dp"
                 android:layout_height="50dp"
+                android:layout_marginStart="80dp"
                 android:background="@android:color/holo_blue_light"
-                android:src="@drawable/bottom"/>
+                android:src="@drawable/right"/>
+
         </LinearLayout>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/bottomBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:background="@android:color/holo_blue_light"
+            android:src="@drawable/bottom"/>
+    </LinearLayout>
 
 
 
